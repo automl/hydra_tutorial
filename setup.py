@@ -45,7 +45,13 @@ setuptools.setup(
     packages=setuptools.find_packages(exclude=["tests"]),
     python_requires=">=3.8",
     install_requires=[
-        "numpy"
+        "numpy",
+        "hydra-core",
+        "scikit-learn",
+        "rich",
+        "hydra-joblib-launcher", 
+        "hydra_colorlog",
+        "jupyterlab"
     ],
     extras_require=extras_require,
     platforms=["Linux"],

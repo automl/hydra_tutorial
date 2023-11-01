@@ -1,0 +1,12 @@
+# @package _global_
+defaults:
+  - _self_
+  - override hydra/launcher: joblib
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+
+seed: 1234
+hidden_layer_sizes: [100,]
+max_iter: 100
+activation: 'relu'
+solver: 'adam'
