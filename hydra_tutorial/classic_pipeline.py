@@ -22,7 +22,11 @@ def train_mlp(cfg: DictConfig) -> float:
     classifier = MLPClassifier(hidden_layer_sizes=cfg.hidden_layer_sizes, max_iter=cfg.max_iter, activation=cfg.activation, solver=cfg.solver)
     scores = cross_val_score(classifier, X_train, y_train, cv=5)
 
-    return np.mean(scores) # mean accuracy over folds
+    mean_score = np.mean(scores)
+
+    print(f"Mean accuracy: {mean_score:.4f}")
+
+    return mean_score # mean accuracy over folds
 
 if __name__ == "__main__":
     train_mlp()
