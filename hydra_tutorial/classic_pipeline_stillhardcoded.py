@@ -6,6 +6,9 @@ import numpy as np
 from omegaconf import DictConfig
 from rich import print as printr
 from rich import inspect
+from sklearn.exceptions import ConvergenceWarning
+import warnings
+warnings.filterwarnings("ignore", category=ConvergenceWarning)
 
 # We load the digits dataset
 digits = datasets.load_digits()

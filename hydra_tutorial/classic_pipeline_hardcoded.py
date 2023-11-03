@@ -3,6 +3,9 @@ from sklearn import datasets
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import cross_val_score
 import numpy as np
+from sklearn.exceptions import ConvergenceWarning
+import warnings
+warnings.filterwarnings("ignore", category=ConvergenceWarning)
 
 # We load the digits dataset
 digits = datasets.load_digits()

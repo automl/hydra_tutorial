@@ -5,6 +5,9 @@ from sklearn.model_selection import cross_val_score
 import numpy as np
 from omegaconf import DictConfig
 import hydra
+from sklearn.exceptions import ConvergenceWarning
+import warnings
+warnings.filterwarnings("ignore", category=ConvergenceWarning)
 
 # We load the digits dataset
 digits = datasets.load_digits()
@@ -15,6 +18,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random
 
 @hydra.main(version_base=None, config_path="configs", config_name="base")
 def train_mlp(cfg: DictConfig) -> float:
+    warnings.filterwarnings("ignore", category=ConvergenceWarning)
+    
     # we want to have reproducible training
     np.random.seed(seed=cfg.seed)
 
