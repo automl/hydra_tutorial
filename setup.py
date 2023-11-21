@@ -28,7 +28,7 @@ extras_require = {
         "black",
         "pydocstyle",
         "flake8",
-        ]
+    ]
 }
 
 setuptools.setup(
@@ -49,9 +49,8 @@ setuptools.setup(
         "hydra-core",
         "scikit-learn",
         "rich",
-        "hydra-joblib-launcher", 
-        "hydra-submitit-launcher"
-        "hydra_colorlog",
+        "hydra-joblib-launcher",
+        "hydra-submitit-launcher" "hydra_colorlog",
         "jupyterlab",
     ],
     extras_require=extras_require,

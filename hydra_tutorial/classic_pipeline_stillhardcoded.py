@@ -8,6 +8,7 @@ from rich import print as printr
 from rich import inspect
 from sklearn.exceptions import ConvergenceWarning
 import warnings
+
 warnings.filterwarnings("ignore", category=ConvergenceWarning)
 
 # We load the digits dataset
@@ -22,23 +23,28 @@ def train_mlp(cfg: DictConfig) -> float:
     np.random.seed(seed=cfg.seed)
 
     # for illustrative purposes, you can reduce max_iter drastically here
-    classifier = MLPClassifier(hidden_layer_sizes=cfg.hidden_layer_sizes, max_iter=cfg.max_iter, activation=cfg.activation, solver=cfg.solver)
+    classifier = MLPClassifier(
+        hidden_layer_sizes=cfg.hidden_layer_sizes, max_iter=cfg.max_iter, activation=cfg.activation, solver=cfg.solver
+    )
     scores = cross_val_score(classifier, X_train, y_train, cv=5)
 
-    return np.mean(scores) # mean accuracy over folds
+    return np.mean(scores)  # mean accuracy over folds
+
 
 if __name__ == "__main__":
     # Ignore the warnings for now:)
     # We can easily create a DictConfig object with dict-like syntax
     # We can have almost any type in here
-    cfg = DictConfig({
-        "seed": 1234,
-        "hidden_layer_sizes": (100,),
-        "max_iter": 100,
-        "activation": 'relu',
-        "solver": 'adam',
-    })
+    cfg = DictConfig(
+        {
+            "seed": 1234,
+            "hidden_layer_sizes": (100,),
+            "max_iter": 100,
+            "activation": "relu",
+            "solver": "adam",
+        }
+    )
     inspect(cfg)
-    
+
     cv_loss = train_mlp(cfg=cfg)
-    print(f'Cross_validation accuaracy on digits {cv_loss}')
+    print(f"Cross_validation accuaracy on digits {cv_loss}")

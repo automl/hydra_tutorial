@@ -4,8 +4,6 @@ from hydra.core.hydra_config import HydraConfig
 from pathlib import Path
 
 
-
-
 def dump_logs(log_data: dict, filename: str):
     """Dump log dict in jsonl format
 
@@ -18,7 +16,7 @@ def dump_logs(log_data: dict, filename: str):
     filename : str
         Filename without path. The path will be either the
         current working directory or if it is called during
-        a hydra session, the hydra run dir will be the log 
+        a hydra session, the hydra run dir will be the log
         dir.
     """
     log_data_str = json.dumps(log_data) + "\n"
