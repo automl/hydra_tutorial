@@ -1,13 +1,13 @@
-from sklearn.model_selection import train_test_split
-from sklearn import datasets
-from sklearn.neural_network import MLPClassifier
-from sklearn.model_selection import cross_val_score
+import warnings
+
 import numpy as np
 from omegaconf import DictConfig
-from rich import print as printr
 from rich import inspect
+from rich import print as printr
+from sklearn import datasets
 from sklearn.exceptions import ConvergenceWarning
-import warnings
+from sklearn.model_selection import cross_val_score, train_test_split
+from sklearn.neural_network import MLPClassifier
 
 warnings.filterwarnings("ignore", category=ConvergenceWarning)
 

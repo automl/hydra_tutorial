@@ -1,7 +1,9 @@
 from __future__ import annotations
+
 import json
-from hydra.core.hydra_config import HydraConfig
 from pathlib import Path
+
+from hydra.core.hydra_config import HydraConfig
 
 
 def dump_logs(log_data: dict, filename: str):
