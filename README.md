@@ -28,8 +28,8 @@ Run `bash install.sh` to create and activate a conda environment and to install 
 
 
 ```bash
-git clone https://github.com/AutoML.org/HydraTutorial.git
-cd HydraTutorial
+git clone git@github.com:automl/hydra_tutorial.git
+cd hydra_tutorial
 conda create -n hydratutorial python=3.11
 conda activate hydratutorial
 
