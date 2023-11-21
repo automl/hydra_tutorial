@@ -7,6 +7,8 @@ from omegaconf import DictConfig
 import hydra
 from sklearn.exceptions import ConvergenceWarning
 import warnings
+from hydra_tutorial.utils import dump_logs
+
 warnings.filterwarnings("ignore", category=ConvergenceWarning)
 
 # We load the digits dataset
@@ -24,14 +26,19 @@ def train_mlp(cfg: DictConfig) -> float:
     np.random.seed(seed=cfg.seed)
 
     # for illustrative purposes, you can reduce max_iter drastically here
-    classifier = MLPClassifier(hidden_layer_sizes=cfg.hidden_layer_sizes, max_iter=cfg.max_iter, activation=cfg.activation, solver=cfg.solver)
+    classifier = MLPClassifier(
+        hidden_layer_sizes=cfg.hidden_layer_sizes, max_iter=cfg.max_iter, activation=cfg.activation, solver=cfg.solver,
+        alpha=cfg.alpha)
     scores = cross_val_score(classifier, X_train, y_train, cv=5)
 
     mean_score = np.mean(scores)
 
     print(f"Mean accuracy: {mean_score:.4f}")
 
-    return mean_score # mean accuracy over folds
+    # Let's produce a log file
+    dump_logs(log_data={"mean_acc": mean_score}, filename="performance.jsonl")
+
+    return 1 - mean_score # mean accuracy over folds
 
 if __name__ == "__main__":
     train_mlp()

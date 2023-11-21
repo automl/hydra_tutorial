@@ -1,13 +1,15 @@
 # HydraTutorial
 
 
-
 ## Installation
-```
+Run `bash install.sh` to create and activate a conda environment and to install this repo.
+
+
+```bash
 git clone https://github.com/AutoML.org/HydraTutorial.git
 cd HydraTutorial
-conda create -n hydra_tutorial python=3.8
-conda activate hydra_tutorial
+conda create -n hydratutorial python=3.11
+conda activate hydratutorial
 
 # Install for usage
 pip install .

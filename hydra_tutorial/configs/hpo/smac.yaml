@@ -1,0 +1,36 @@
+# @package _global_
+defaults:
+  - override /hydra/sweeper: SMAC
+
+hydra:
+  sweeper:
+
+    # SETUP SMAC
+    smac_class: smac.facade.blackbox_facade.BlackBoxFacade
+    scenario:
+      seed: ${seed}
+      n_trials: 100
+      deterministic: true
+      n_workers: 4
+    smac_kwargs:
+      dask_client: null  # use local parallelization
+      logging_level: 20  # 10 DEBUG, 20 INFO
+
+    # DEFINE SEARCH SPACE
+    search_space:
+      hyperparameters:  # required
+        alpha:  # Strength of the L2 regularization
+          type: uniform_float
+          lower: 1e-6
+          upper: 1e-2
+          log: true
+          default_value: ${alpha}
+        solver:
+          type: categorical
+          choices: [lbfgs, adam, sgd]
+          default_value: ${solver}
+
+        activation:
+          type: categorical
+          choices: [logistic, tanh, relu]
+          default_value: ${activation}

@@ -52,7 +52,7 @@ setuptools.setup(
         "hydra-joblib-launcher", 
         "hydra-submitit-launcher"
         "hydra_colorlog",
-        "jupyterlab"
+        "jupyterlab",
     ],
     extras_require=extras_require,
     platforms=["Linux"],

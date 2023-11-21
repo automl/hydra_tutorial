@@ -10,3 +10,4 @@ hidden_layer_sizes: [100,]
 max_iter: 100
 activation: 'relu'
 solver: 'adam'
+alpha: 0.0001
