@@ -50,6 +50,7 @@ setuptools.setup(
         "scikit-learn",
         "rich",
         "hydra-joblib-launcher", 
+        "hydra-submitit-launcher"
         "hydra_colorlog",
         "jupyterlab"
     ],

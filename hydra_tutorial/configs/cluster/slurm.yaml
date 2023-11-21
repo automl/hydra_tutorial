@@ -1,0 +1,11 @@
+# @package _global_
+defaults:
+  - override /hydra/launcher: submitit_slurm
+
+# Check more possible options here:
+# https://hydra.cc/docs/plugins/submitit_launcher/
+hydra:
+  launcher:
+    # partition: normal  # Set your partition here
+    timeout_min: 10
+    cpus_per_task: 1
