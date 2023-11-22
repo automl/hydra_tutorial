@@ -21,4 +21,4 @@ hydra:
     dir: ${outdir}
   sweep:
     dir: ${outdir}
-    #subdir: null
+    #subdir: null # if this is not set, normally is the hydra job number
