@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 from hydra.core.hydra_config import HydraConfig
+from hydra.types import RunMode
 
 
 def dump_logs(log_data: dict, filename: str):
@@ -26,7 +27,11 @@ def dump_logs(log_data: dict, filename: str):
     try:
         # Check if we are in a hydra context
         hydra_cfg = HydraConfig.instance().get()
-        directory = hydra_cfg.run.dir
+        if hydra_cfg.mode == RunMode.RUN:
+            directory = Path(hydra_cfg.run.dir)
+        else:  # MULTIRUN
+            directory = Path(hydra_cfg.sweep.dir) / hydra_cfg.sweep.subdir
+        
     except:
         directory = "."
     filename = Path(directory) / filename

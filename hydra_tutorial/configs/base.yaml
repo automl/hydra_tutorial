@@ -11,3 +11,14 @@ max_iter: 100
 activation: 'relu'
 solver: 'adam'
 alpha: 0.0001
+
+
+
+
+outdir: runs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+hydra:
+  run:
+    dir: ${outdir}
+  sweep:
+    dir: ${outdir}
+    #subdir: null
