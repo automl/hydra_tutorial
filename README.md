@@ -1,4 +1,4 @@
-# HydraTutorial
+# HydraTutorial at AutoML Fall School 2023
 Looking to improve your experimental workflow? Tired of dealing with all the different experimental setups?
 
 If so, I would like to introduce you to Hydra (https://github.com/facebookresearch/hydra).
